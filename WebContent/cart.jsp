@@ -53,22 +53,21 @@
              <span></span>
              </div>
              <%}else{ %>
-             <div id="sign-in-box">
+             
+             <div class="sign-in-box">
 							<h2>请登录</h2>
-			   <form method="post" action="login.do">
+			   <form action="login.do" method="post">
 				   <div class="text-boxs">
-					   <span>
-						   <input type="text" name="username" class="text-box" placeholder="用户名" required /> 
+						   <input name="username" type="text" class="text-box" placeholder="用户名" required /> 
 						   <div class="clearfix"> </div>
-					   </span>
-					   <span>
-							<input type="password" name="password" class="text-box" placeholder="密码" required /> 
+							<input name="password" type="password" class="text-box" placeholder="密码" required /> 
 							<div class="clearfix"> </div>
-				   </div>
-				   <input type="submit" value="登陆" /><br>
-                   <a ref="registor.do">注册</a>
+				 </div>
+				 <input type="submit" value="登陆" /><br>
+                 <a href=''>注册</a>
 			   </form>
 			</div>
+			 
 			<%} %>
          </div>
          <div id="right">
