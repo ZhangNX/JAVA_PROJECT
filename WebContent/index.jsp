@@ -1,3 +1,4 @@
+<%@page import="cn.bjfu.im.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
@@ -38,23 +39,30 @@
                 <li><a href="aboutMe.html">订&nbsp&nbsp&nbsp单</a></li>
                 <li><a href="北林.html">购&nbsp物&nbsp车</a></li>
              </ul>
-             <div class="sign-in-box">
-							<h2>我的朋友？</h2>
+             <%if(session.getAttribute("userid")!=null){ %>
+             <div id="user-info">
+             <img src="images/logo.jpg"width="80" height="80" id="logo">
+             <span>&nbsp;用户ID:<%=session.getAttribute("userid")%></span>
+             <span></span>
+             </div>
+             <%}else{ %>
+             <div id="sign-in-box">
+							<h2>请登录</h2>
 			   <form method="post" action="login.do">
 				   <div class="text-boxs">
-					   <span class="text-box">
-						   <input type="text" name="username" placeholder="用户名" required /> 
+					   <span>
+						   <input type="text" name="username" class="text-box" placeholder="用户名" required /> 
 						   <div class="clearfix"> </div>
 					   </span>
-					   <span class="text-box">
-							<input type="text" name="password" placeholder="密码" required /> 
+					   <span>
+							<input type="password" name="password" class="text-box" placeholder="密码" required /> 
 							<div class="clearfix"> </div>
-					 </span>
-				 </div>
-				 <input type="submit" value="登陆" /><br>
-                 <a ref="registor.do">注册</a>
+				   </div>
+				   <input type="submit" value="登陆" /><br>
+                   <a ref="registor.do">注册</a>
 			   </form>
 			</div>
+			<%} %>
          </div>
          <div id="right">
              <div id="homepage_image">

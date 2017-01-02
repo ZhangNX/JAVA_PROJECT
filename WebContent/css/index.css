@@ -64,8 +64,17 @@ body{
 
 #left {
     width:218px; float:left; clear:left;    
-
 	/*border:1px solid blue;*/
+}
+
+/*用户信息表*/
+#user-info {
+	border-left:8px solid #9DE2B5;
+	background: #FFF;
+	padding: 0.5em 1em 1.8em;
+	margin: 1.3em 0;
+	border-radius:0.2em;
+	height:200px;
 }
 
 
@@ -205,6 +214,7 @@ a:hover {
 	position:relative;
 	display:block;
 	margin:1em 0 0.8em;
+	height:18px;
 	/*opacity:0.6;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
@@ -258,9 +268,9 @@ a:hover {
 	outline: none;
 	color: #FFF;
 	display: block;
-	width: 100%;
+	width: 169px;
 	border-radius: 0.3em;
-	height:26px;
+	height:26px;	
 	/*-webkit-border-radius: 0.3em;
 	-moz-border-radius: 0.3em;
 	-o-border-radius: 0.3em;
