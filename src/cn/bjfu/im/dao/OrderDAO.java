@@ -77,6 +77,6 @@ public class OrderDAO extends BaseDAO {
 				e.printStackTrace();
 			}
 		}
-		return amount;
+		return (HashMap<Integer, OrderVO>) orderMap;
 	}
 }
