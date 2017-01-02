@@ -75,7 +75,7 @@
                  <div id="cart-block">
                  <%!Collection<Integer> goods = null; %>
                  <%!GoodsInfoInitDAO dao = new GoodsInfoInitDAO(); %>
-                 <%!Map<Integer, Integer> map = null; %>
+                 <%Map<Integer, Integer> map = null; %>
                  <%int totalPrice = 0; %>
                  <%if(session.getAttribute("GOODS_IN_CART") != null) { 
 	               map = (Map<Integer, Integer>)session.getAttribute("GOODS_IN_CART");
@@ -85,7 +85,7 @@
                      <table class="cart-table">
                          <tr><th colspan=2>商品</th><th>单价</th><th>数量</th><th>小计</th><th>操作</th></th>
                          <tr><td><img src="images/logo.jpg"width="70" height="70"></td><td>一只怪兽</td><td>￥100</td><td>1</td><td>1000</td><td>删除</td></tr>
-                         <%if(goods != null){%>
+                         <%if(map != null){%>
                          <%for(int gid:goods) {
                                 GoodsInfoVO vo = dao.getGoodsInfo(gid);
                          %>
@@ -100,7 +100,9 @@
                            }%>
                             <tr>
                                 <td colspan=5>总价:￥<%= totalPrice %></td>
-                                <td><a href='removeGoods.do?id=1'>删除</a></td>
+                                <td><a href='removeGoods.do?msg=clear'>清空</a><br>
+                                    <a href='createOreder.jsp' id="pay-button">结算</a>
+                                </td>
                             </tr>
                          <%
                          } else {%>

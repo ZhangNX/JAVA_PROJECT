@@ -1,6 +1,7 @@
 package cn.bjfu.im.servlet;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -36,13 +37,26 @@ public class RemoveGoodsServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String sid = request.getParameter("id");
-		int gid = Integer.parseInt(sid);
+		String sid = null;
+		String msg = null;
+		int gid = 0;
 		String rdPgae = "cart.jsp";
 		HttpSession session = request.getSession();
 		Map<Integer, Integer> cartMap = null;
 		
-		if(session.getAttribute("GOODS_IN_CART")!=null){
+		msg = request.getParameter("msg");
+		if (msg!=null) {
+			if(msg.equals("clear")){//清空购物车
+				System.out.println("clear");
+				session.removeAttribute("GOODS_IN_CART");
+				if(session.getAttribute("GOODS_IN_CART")==null){
+					System.out.println("null!!!!");
+				}
+				
+			}
+		}else if(session.getAttribute("GOODS_IN_CART")!=null){
+			sid = request.getParameter("id");
+			gid = Integer.parseInt(sid);
 			cartMap = (Map<Integer, Integer>)session.getAttribute("GOODS_IN_CART");
 			int gnum = 0;
 			gnum = cartMap.get(gid);
@@ -55,12 +69,15 @@ public class RemoveGoodsServlet extends HttpServlet {
 			}
 			//将购物车map写入session
 			session.setAttribute("GOODS_IN_CART", cartMap);
-			
-			//跳转页面
-			RequestDispatcher rd = request.getRequestDispatcher(rdPgae);
-			rd.forward(request, response);
 		}
- 		
+		
+		// 设置无缓存
+		response.addHeader("progma", "no-cache");
+		response.addHeader("Cache-Control", "no-cache");
+		response.addDateHeader("Expires", 0);
+		//跳转页面
+		RequestDispatcher rd = request.getRequestDispatcher(rdPgae);
+		rd.forward(request, response);
 	}
 
 }

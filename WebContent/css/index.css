@@ -298,3 +298,19 @@ a:hover {
 	margin:1.5em 0;
 	text-align:center;
 }
+
+#pay-button{
+	background: #F05F6A;
+	border: none;
+	outline: none;
+	color: #FFF;
+	display: block;
+	width: 2em;
+	border-radius: 0.3em;
+	font-family: 'Raleway-SemiBold';
+	padding: 0.2em 0.2em;
+	text-transform: uppercase;
+}
+#pay-button:hover{
+	text-decoration:underline;}
+}
