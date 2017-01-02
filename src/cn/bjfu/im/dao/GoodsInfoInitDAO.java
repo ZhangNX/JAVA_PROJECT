@@ -96,12 +96,12 @@ public class GoodsInfoInitDAO extends BaseDAO {
 	}
 	public int getSearchedGoodsCount(String searchs) {// 返回search的商品信息数量
 		Connection conn = open();
-		String sql = "select count(gid) as count from goods_info where good like %?%";
+		String sql = "select count(gid) as count from goods_info where good like ?";
 		int count = -1;
 		try {
 			PreparedStatement ps = (PreparedStatement) conn
 					.prepareStatement(sql);
-			ps.setString(1, searchs);
+			ps.setString(1, "%"+searchs+"%");
 			ResultSet rs = (ResultSet) ps.executeQuery();
 			while (rs.next()) {
 				count = rs.getInt("count");
@@ -122,12 +122,12 @@ public class GoodsInfoInitDAO extends BaseDAO {
 			int iPage, int num) {// search的信息，返回分页查询的map
 		Connection conn = open();
 		Map<Integer, GoodsInfoVO> InitMap = new HashMap<Integer, GoodsInfoVO>();
-		String sql = "select gid,good,price,introduction,picture_url from goods_info where good like %?% order by gid limit ? , ?";
+		String sql = "select gid,good,price,introduction,picture_url from goods_info where good like ? order by gid limit ? , ?";
 		try {
 			PreparedStatement ps = (PreparedStatement) conn
 					.prepareStatement(sql);
 			int page = (iPage - 1) * 4;
-			ps.setString(1, searchs);
+			ps.setString(1, "%"+searchs+"%");
 			ps.setInt(2, page);
 			ps.setInt(3, num);
 			ResultSet rs = (ResultSet) ps.executeQuery();
@@ -141,6 +141,7 @@ public class GoodsInfoInitDAO extends BaseDAO {
 				GoodsInfoVO vo = new GoodsInfoVO(gid,good, price, introduction,
 						pictureURL);
 				InitMap.put(i, vo);
+				i++;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

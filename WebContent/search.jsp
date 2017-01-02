@@ -88,6 +88,10 @@
 				<%
 					int iPage = 1;
 					int goodsCount = 4;
+					String searchname = (String) request.getAttribute("searchname");
+					out.println("<div id='goodinfotop'>");
+					out.println("查询:"+searchname+" 的结果");
+					out.println("</div >");
 					if (request.getParameter("iPage") != null) {
 						iPage = Integer.parseInt(request.getParameter("iPage"));
 					} else {
@@ -125,8 +129,7 @@
 							iPage = totalPage;
 						}
 						for (int i = 1; i <= totalPage; i++) {
-
-							out.println("<a href='index.jsp?iPage=" + i + "'>" + i
+							out.println("<a href='search.do?searchname="+searchname+"&iPage=" + i + "'>" + i
 									+ "&nbsp;&nbsp;</a>");
 						}
 					%>
