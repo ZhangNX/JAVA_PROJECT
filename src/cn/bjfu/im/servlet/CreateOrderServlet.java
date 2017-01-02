@@ -18,6 +18,7 @@ import com.sun.javafx.sg.prism.NGWebView;
 import cn.bjfu.im.dao.GoodsInfoInitDAO;
 import cn.bjfu.im.dao.OrderDAO;
 import cn.bjfu.im.dao.OrderDetailDAO;
+import cn.bjfu.im.dao.StockDAO;
 import cn.bjfu.im.vo.GoodsInfoVO;
 import cn.bjfu.im.vo.MemberVO;
 import cn.bjfu.im.vo.OrderDetailVO;
@@ -86,15 +87,19 @@ public class CreateOrderServlet extends HttpServlet {
 				OrderDetailVO orderDetailVo = null;
 				OrderDetailDAO orderDetailDao = new OrderDetailDAO();
 				ArrayList<OrderDetailVO> orderDeatailVoList = new ArrayList<>();
+				StockDAO sDao = new StockDAO();
 				for(int gid:goodsSet) {
                     GoodsInfoVO vo = goodsDao.getGoodsInfo(gid);
                     orderDetailVo = new OrderDetailVO(oid, gid, cartMap.get(gid));
                     orderDeatailVoList.add(orderDetailVo);
+                    //减少库存
+					sDao.decrStock(gid, cartMap.get(gid));
                 }
 				//4.使用orderDetailDao将订单商品列表写入数据库
 				boolean detailFlag = orderDetailDao.addOrderDetail(orderDeatailVoList);
 				if(detailFlag){
 					request.getSession().setAttribute("GOODS_IN_CART", null);
+					
 				}
 			}
 		}

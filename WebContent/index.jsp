@@ -47,7 +47,8 @@
 				%>
 				<div id="user-info">
 					<img src="images/logo.jpg" width="80" height="80" id="logo">
-					<span>&nbsp;用户ID:<%=session.getAttribute("userid")%></span> <span></span>
+					<span>&nbsp;用户ID:<%=session.getAttribute("userid")%></span><br>
+					<span>&nbsp;<a href="logOff.do">注销</a></span>
 				</div>
 				<%
 					} else {
