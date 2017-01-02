@@ -14,6 +14,7 @@
     background: #FFF;
 	border-radius: 0.2em;
 	border:1px solid yellow;
+	text-align:center;
 }
 #goodinfotop {
     width:656px; float:left; clear:left;
@@ -38,6 +39,7 @@
     background: #FFF;
 	border-radius: 0.2em;
 	border:1px solid yellow;
+	text-align:left;
 }
 #goodinfomid {
     width:650px; float:left; clear:left;
@@ -46,6 +48,7 @@
     background: #FFF;
 	border-radius: 0.2em;
 	border:1px solid yellow;
+	text-align:left;
 }
 #goodinfobot {
     width:650px; float:left; clear:left;
