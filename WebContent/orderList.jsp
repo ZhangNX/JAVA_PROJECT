@@ -1,3 +1,5 @@
+<%@page import="cn.bjfu.im.vo.OrderVO"%>
+<%@page import="cn.bjfu.im.dao.OrderDAO"%>
 <%@page import="cn.bjfu.im.dao.GoodsInfoInitDAO"%>
 <%@page import="cn.bjfu.im.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,7 +12,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>购物车</title>
+<title>订单</title>
 <link rel="shortcut icon" href="images/logo.jpg" >
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
 <link rel="stylesheet" type="text/css" href="css/cart.css"/>
@@ -35,7 +37,7 @@
              <img src="images/logo.jpg"width="91" height="91" id="logo">
          </div>
          <div id="title">
-             <span id="myname_01"><a href="index.html">购物车</a></span>
+             <span id="myname_01"><a href="index.html">订单</a></span>
          </div>
 
   </div>
@@ -73,42 +75,36 @@
          <div id="right">
              <div id="right-content">
                  <div id="cart-block">
-                 <%!Collection<Integer> goods = null; %>
-                 <%!GoodsInfoInitDAO dao = new GoodsInfoInitDAO(); %>
-                 <%Map<Integer, Integer> map = null; %>
-                 <%int totalPrice = 0; %>
-                 <%if(session.getAttribute("GOODS_IN_CART") != null) { 
-	               map = (Map<Integer, Integer>)session.getAttribute("GOODS_IN_CART");
-	               goods = map.keySet();
-                   }
+                 <%int userid = 0;
+                   OrderDAO dao = new OrderDAO();
+                   Map<Integer, OrderVO> map = null;
+                   
+                   if(session.getAttribute("userid") != null) { 
+                       userid = (Integer)session.getAttribute("userid");
+	                   map = dao.getOrder(userid);
                  %>
                      <table class="cart-table">
-                         <tr><th colspan=2>商品</th><th>单价</th><th>数量</th><th>小计</th><th>操作</th></th>
-                         <tr><td><img src="images/logo.jpg"width="70" height="70"></td><td>一只怪兽</td><td>￥100</td><td>1</td><td>1000</td><td>删除</td></tr>
+                         <tr><th colspan=2>订单编号</th><th>时间</th><th>总价</th><th>操作</th></th>
                          <%if(map != null){%>
-                         <%for(int gid:goods) {
-                                GoodsInfoVO vo = dao.getGoodsInfo(gid);
+                         <%for (Map.Entry<Integer, OrderVO> entry : map.entrySet()) {
+                               System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
+                               OrderVO orderVo = (OrderVO)entry.getValue();
                          %>
-                         	<tr><td><%="<img src='"+vo.getPictureURL()+"' width='70' height='70'>" %></td>
-                         	<td><%=vo.getGood() %></td>
-                         	<td><%="￥"+vo.getPrice() %></td>
-                         	<td><%= map.get(gid) %></td>
-                         	<td><%="￥"+vo.getPrice()*map.get(gid) %></td>
-                         	<td><%="<a href='removeGoods.do?id="+gid+"'>" %>删除</a></td>
+                         	<tr>
+                         	    <td><%=entry.getKey() %></td>
+                         	    <td><%=orderVo.getTimestamp() %></td>
+                         	    <td><%=orderVo.getTotal() %></td>
+                         	    <td><%="<a href='orederDetail.jsp?oid="+entry.getKey()+"'>" %>详情</a></td>
                          	</tr>
-                         <%totalPrice+=vo.getPrice()*map.get(gid);
-                           }%>
-                            <tr>
-                                <td colspan=5>总价:￥<%= totalPrice %></td>
-                                <td><a href='removeGoods.do?msg=clear'>清空</a><br>
-                                    <a href='createOrder.do' id="pay-button">结算</a>
-                                </td>
-                            </tr>
-                         <%
-                         } else {%>
-                         <tr><td colspan=6>购物车中没有商品</td></tr>
-                         <%} %>
-                         <tr></tr>
+                         <%}
+                           } else {%>
+                            <tr><td colspan=4>没有订单，快去下单吧！</td></tr>
+                  <%       } 
+                    }else{%>
+                      <table class="cart-table">
+                          <tr><th colspan=4>请先登陆！</th></tr>
+                      </table>
+                    <%} %>
                      </table>
                  </div>
              </div>

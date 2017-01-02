@@ -43,7 +43,7 @@
          <div id="left">
              <ul id="menu_left">
                 <li><a href="index.jsp">首&nbsp&nbsp&nbsp页</a></li>
-                <li><a href="aboutMe.html">订&nbsp&nbsp&nbsp单</a></li>
+                <li><a href="orderList.jsp">订&nbsp&nbsp&nbsp单</a></li>
                 <li><a href="cart.jsp">购&nbsp物&nbsp车</a></li>
              </ul>
              <%if(session.getAttribute("userid")!=null){ %>
