@@ -58,3 +58,13 @@
 	border-radius: 0.2em;
 	border:1px solid yellow;
 }
+#headerright {
+	height:40px;
+	width:210px; float:right; clear:right;
+	margin:65px 50PX 0px auto;
+	padding:0px;
+    background: #FFF;
+	border-radius: 0.2em;
+	/* border:1px solid red; */
+
+}
