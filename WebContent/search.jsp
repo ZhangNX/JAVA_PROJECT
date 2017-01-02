@@ -42,7 +42,7 @@
 
 			<div id='headerright'>
 				<form action="search.do" method="post">
-					<input type='text' name='searchname' >
+					<input type='text' size="12" name='searchname' >
 					<input type='submit' name='查询' value='查询'>
 				</form>
 			</div>
