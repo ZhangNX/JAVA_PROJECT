@@ -5,7 +5,7 @@ body{
 }
 
 #container {
-	width:894px;
+	width:1000px;
 	margin:0 auto;
 /*	border:1px solid green;*/
 }
@@ -72,7 +72,7 @@ body{
 	border-left:8px solid #9DE2B5;
 	background: #FFF;
 	padding: 0.5em 1em 1.8em;
-	margin: 1.3em 0;
+	margin: 0.5em 0;
 	border-radius:0.2em;
 	height:200px;
 }
@@ -131,10 +131,14 @@ body{
 #right {
     width:658px; float:left; clear:right;
 	margin-left:10px;
-	padding-left:2px;
+	padding:0em 2em;
     background: #FFF;
 	border-radius: 0.2em;
 	/*border:1px solid yellow;*/
+}
+
+#right-content {
+	padding: 0.7em;
 }
 
 #tail {
