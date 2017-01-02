@@ -41,6 +41,8 @@ public class AddGoodsServlet extends HttpServlet {
 	    int gnum = Integer.parseInt(snum);
 	    String page = "cart.jsp";
 	    
+	    System.out.println("sid="+sid+",sum="+snum);
+	    
 	    GoodsInfoVO vo = null;
 	    GoodsInfoInitDAO dao = new GoodsInfoInitDAO();
 	    vo = dao.getGoodsInfo(gid);

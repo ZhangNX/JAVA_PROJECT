@@ -88,7 +88,7 @@
                          <tr><td><img src="images/logo.jpg"width="70" height="70"></td><td>一只怪兽</td><td>￥100</td><td>1</td><td>1000</td><td>删除</td></tr>
                          <%if(goods != null){%>
                          <%for(int gid:goods) {
-                                GoodsInfoVO vo = dao.getGoodsInfo(1);
+                                GoodsInfoVO vo = dao.getGoodsInfo(gid);
                          %>
                          	<tr><td><%="<img src='"+vo.getPictureURL()+"' width='70' height='70'>" %></td>
                          	<td><%=vo.getGood() %></td>

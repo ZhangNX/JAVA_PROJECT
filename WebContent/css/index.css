@@ -78,6 +78,7 @@ body{
 }
 
 
+
 #menu_left{
 	list-style-type:none;
 	margin-top:0;
@@ -210,15 +211,14 @@ a:hover {
     text-decoration: underline;
 }
 
-
-
 /*登陆框*/
 .text-box{
 	border:1px solid #A4ADB5;
 	position:relative;
 	display:block;
 	margin:1em 0 0.8em;
-	height:18px;
+	height:1.6em;
+	weight:9em;
 	/*opacity:0.6;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
@@ -272,9 +272,9 @@ a:hover {
 	outline: none;
 	color: #FFF;
 	display: block;
-	width: 169px;
+	width: 12em;
 	border-radius: 0.3em;
-	height:26px;	
+	height:26px;
 	/*-webkit-border-radius: 0.3em;
 	-moz-border-radius: 0.3em;
 	-o-border-radius: 0.3em;

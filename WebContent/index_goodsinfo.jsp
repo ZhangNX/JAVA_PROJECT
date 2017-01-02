@@ -41,9 +41,9 @@
 		<div id="middle">
 			<div id="left">
 				<ul id="menu_left">
-					<li><a href="index.html">首&nbsp&nbsp&nbsp页</a></li>
-					<li><a href="aboutMe.html">订&nbsp&nbsp&nbsp单</a></li>
-					<li><a href="北林.html">购&nbsp物&nbsp车</a></li>
+					<li><a href="index.jsp">首&nbsp&nbsp&nbsp页</a></li>
+					<li><a href="order.jsp">订&nbsp&nbsp&nbsp单</a></li>
+					<li><a href="cart.jsp">购&nbsp物&nbsp车</a></li>
 				</ul>
 				<%
 					if (session.getAttribute("userid") != null) {

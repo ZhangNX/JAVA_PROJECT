@@ -96,7 +96,7 @@
 							int amount = sdao.getStock(gid);
 							out.println("库存：" + amount);
 						%><br> <br>
-						<form action="addGoods.do" methord="post">
+						<form action="addGoods.do" method="post">
 						购买数量：<input onkeyup="value=value.replace(/[^1234567890-]+/g,'')"
 						name = 'num'>
 						<input type='hidden' name = 'id' value='<%=gid%>'>

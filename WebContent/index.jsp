@@ -1,13 +1,20 @@
 <%@page import="cn.bjfu.im.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@page import="java.util.Map.Entry"%>
+<%@page import="cn.bjfu.im.vo.*"%>
+<%@page import="cn.bjfu.im.dao.*"%>
+<%@page import="java.util.HashMap"%>
+
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title></title>
+<title>购物网站-首页</title>
 <link rel="shortcut icon" href="images/logo.jpg" >
 <link rel="stylesheet" type="text/css" href="css/index.css"/>
+<link rel="stylesheet" type="text/css" href="css/goods.css" />
 
 </head>
 
@@ -28,16 +35,16 @@
              <img src="images/logo.jpg"width="91" height="91" id="logo">
          </div>
          <div id="title">
-             <span id="myname_01"><a href="index.html">购物网站</a></span>
+             <span id="myname_01"><a href="index.html">首页</a></span>
          </div>
 
   </div>
      <div id="middle">
          <div id="left">
              <ul id="menu_left">
-                <li><a href="index.html">首&nbsp&nbsp&nbsp页</a></li>
+                <li><a href="index.jsp">首&nbsp&nbsp&nbsp页</a></li>
                 <li><a href="aboutMe.html">订&nbsp&nbsp&nbsp单</a></li>
-                <li><a href="北林.html">购&nbsp物&nbsp车</a></li>
+                <li><a href="cart.jsp">购&nbsp物&nbsp车</a></li>
              </ul>
              <%if(session.getAttribute("userid")!=null){ %>
              <div id="user-info">
@@ -46,33 +53,46 @@
              <span></span>
              </div>
              <%}else{ %>
-             <div id="sign-in-box">
+             
+             <div class="sign-in-box">
 							<h2>请登录</h2>
-			   <form method="post" action="login.do">
+			   <form action="login.do" method="post">
 				   <div class="text-boxs">
-					   <span>
-						   <input type="text" name="username" class="text-box" placeholder="用户名" required /> 
+						   <input name="username" type="text" class="text-box" placeholder="用户名" required /> 
 						   <div class="clearfix"> </div>
-					   </span>
-					   <span>
-							<input type="password" name="password" class="text-box" placeholder="密码" required /> 
+							<input name="password" type="password" class="text-box" placeholder="密码" required /> 
 							<div class="clearfix"> </div>
-				   </div>
-				   <input type="submit" value="登陆" /><br>
-                   <a ref="registor.do">注册</a>
+				 </div>
+				 <input type="submit" value="登陆" /><br>
+                 <a href=''>注册</a>
 			   </form>
 			</div>
+			 
 			<%} %>
          </div>
          <div id="right">
-             <div id="homepage_image">
-                 <dl><dd>欢迎光临</dd><dd>欢迎再次光临</dd><dd>祝你吃好喝好</dd></dl>
-                 <div .class="photos"><img src="images/meat03.jpg" width="374" height="374">
-                 </div>
-             </div>
+             <%
+					GoodsInfoInitDAO dao = new GoodsInfoInitDAO();
+					HashMap<Integer, GoodsInfoVO> map = dao.getAllGoodsInfo();
+					for (Entry<Integer, GoodsInfoVO> entry : map.entrySet()) {
+						int gid = entry.getKey();
+						GoodsInfoVO vo = entry.getValue();
+						if (gid % 2 == 1) {
+							out.println("<div id='goodleft'>");
+						} else {
+							out.println("<div id='goodright'>");
+						}
+						out.println("<a href='goodinfo.jsp?gid=" + gid + "'>");
+						out.println("<img src='" + vo.getPictureURL() + "'>");
+						out.println("</a><br>");
+						out.println(vo.getGood());
+						out.println("</div>");
+
+					}
+				%>
          </div>
      <div id="tail">
-      <div id="copyright">Copyright © 2015 周兵杰. All Rights Reserved</div>
+      <div id="copyright">Copyright © 2017 imis. All Rights Reserved</div>
      </div>
 </div>
 </body>
