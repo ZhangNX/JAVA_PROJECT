@@ -1,0 +1,286 @@
+@charset "utf-8";
+
+body{
+    background-color: #F0F3F6;
+}
+
+#container {
+	width:894px;
+	margin:0 auto;
+/*	border:1px solid green;*/
+}
+
+#header {
+	height:91px;
+	
+/*	border:1px solid red;*/
+
+}
+
+#logo {
+	float:left; clear:left;
+	border-radius: 0.5em;
+}
+
+#title {
+	float:left;
+	position:relative;
+	margin-left:10px;
+	margin-top:24px;
+}
+
+#myname_01{
+	font-size:25px;
+	color: #7BAF30;
+	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+}
+#myname_01 a{
+	text-decoration:none;
+    display:block; 
+}
+#myname_02{
+	font-size:12px;
+	color: #6E6D6D;
+}
+
+#menu_head {
+	float:left; clear:right;
+	margin-top:30px;
+	margin-left:40px;
+	}
+#menu_head ul{
+	list-style-type:none;
+}
+#menu_head li{
+	float:left;
+	margin:3px;
+}
+
+#middle{
+	margin-top:17px;
+	
+/*	border:1px solid red;*/
+}
+
+#left {
+    width:218px; float:left; clear:left;    
+
+	/*border:1px solid blue;*/
+}
+
+
+#menu_left{
+	list-style-type:none;
+	margin-top:0;
+	padding-top:4px;
+	padding-bottom:4px;
+	padding-left:24px;
+	border-left:8px solid #9DE2B5;
+	background: #FFF;
+	border-radius: 0.2em;
+	font-family:Arial;
+	/*	border:2px solid #33CCFF;*/
+
+}
+#menu_left ul{
+	margin-left:0;
+}
+#menu_left li{
+	margin:0 0px 0px 0px;
+}
+#menu_left li a{
+    display:block; 
+	padding:5px 0px;
+	text-decoration:none;
+	/*border-left:6px solid #21B8C6; /* 左边的粗红边 */
+}
+#menu_left li a:link, #menu_left li a:visited{
+	background-color:#FFF;
+	/*color:#FFFFFF;*/
+}
+#menu_left li a:hover{/* 鼠标经过时 */
+    border-right:6px solid #21B8C6;
+	/*background-color:#9DE2B5; /* 背景色 */
+	/*color:#ffff00; /* 改变文字颜色 */
+}
+
+
+#form_login{
+	border-left:8px solid #F05F6A;
+	padding-left:36px;
+    color: #6E6D6D;
+	font-size:13px;
+}
+#form_login input{
+	font-size:13px;
+    color: #6E6D6D;
+}
+#form_login .button_login{
+/*	border:2px solid #33CCFF;*/
+}
+
+#right {
+    width:658px; float:left; clear:right;
+	margin-left:10px;
+	padding-left:2px;
+    background: #FFF;
+	border-radius: 0.2em;
+	/*border:1px solid yellow;*/
+}
+
+#tail {
+	width:100%;
+	clear:both;
+	text-align:center;
+	padding-top:25px;	
+/*	border:2px solid purple;*/
+}
+#tail_content{
+    clear:both;
+    align:center;
+	color: #6E6D6D;
+	margin-left:0;
+}
+#tail_content li{
+    list-style:none;
+}
+#tail_content dl dt{
+	color:#7BAF30;
+	text-decoration:underline;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+}
+#tail_content_left{
+    float:left;
+	clear:left;
+	padding-left:50px;
+	border-left: 8px solid #5CB7D2;
+/*	padding-left:7px;padding-right:80px;*/
+}
+#tail_content_center{
+    float:left;
+	margin-left:20px;
+/*	padding-left:80px;padding-right:80px;*/
+}
+#tail_content_right{
+    float:left;
+	clear:right;
+	margin-left:20px;
+/*	padding-left:80px;padding-right:7px;*/
+}
+#copyright{
+	padding-top:20px;
+    clear:both;
+	color: #6E6D6D;
+	font-size:10px;
+}
+
+
+a {
+    color: #6E6D6D;
+    text-decoration: none;
+}
+a:link { 
+	    text-decoration:none; 
+} 
+/*a:hover { 
+	     text-decoration:underline; 
+} */
+a:active { 
+		  text-decoration:none; 
+} 
+a:visited { 
+		   text-decoration:none;
+		   color:#6E6D6D; 
+} 
+a:hover {
+    color: #7BAF30;
+    text-decoration: underline;
+}
+
+
+
+/*登陆框*/
+.text-box{
+	border:1px solid #A4ADB5;
+	position:relative;
+	display:block;
+	margin:1em 0 0.8em;
+	/*opacity:0.6;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;*/
+}
+.text-box:hover{
+	opacity:1;
+}
+/*.text-box label{
+	width: 38px;
+	height: 38px;
+	display: inline-block;
+	background: url(../images/s-icons.png) no-repeat 3px 1px;
+	position: absolute;
+	z-index: 999;
+	border-right: 1px solid #A4ADB5;
+}
+.text-box label.s-lock{
+	background-position:3px -31px;
+}*/
+.text-box input[type="text"]{
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
+	width: 90%;
+	outline: none;
+	padding: 0.3em;
+	display: block;
+}
+.sign-in-box{
+	border-left:8px solid #9DE2B5;
+	background: #FFF;
+	padding: 1.8em 1em 1.8em;
+	margin: 1.3em 0;
+	border-radius:0.2em;
+}
+.sign-in-box h2{
+	font-family:Arial, Helvetica, sans-serif;
+	color: #475965;
+	font-size: 0.9em;
+	margin: 0;
+	font-weight:500;
+	text-align: center;
+}
+.sign-in-box input[type="submit"]{
+	background: #21B8C6;
+	border: none;
+	outline: none;
+	color: #FFF;
+	display: block;
+	width: 100%;
+	border-radius: 0.3em;
+	height:26px;
+	/*-webkit-border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	-o-border-radius: 0.3em;
+	-ms-border-radius: 0.3em;*/
+	font-family: 'Raleway-SemiBold';
+	font-size: 0.8em;
+	padding: 0.4em 0;
+	text-transform: uppercase;
+	/*cursor:pointer;
+	 transition:0.5s all;
+	 -webkit-transition:0.5s all;
+	 -moz-transition:0.5s all;
+	 -o-transition:0.5s all;
+	 -ms-transition:0.5s all;*/
+}
+.sign-in-box input[type="submit"]:hover{
+	background: #475965;
+	color: #FFF;
+}
+.text-boxs{
+	margin:1.5em 0;
+	text-align:center;
+}
