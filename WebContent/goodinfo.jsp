@@ -17,18 +17,6 @@
 
 <body>
 	<div id="container">
-		<div>
-			<%
-				if (request.getAttribute("msg") != null) {
-					if (request.getAttribute("msg").equals("success")) {
-						out.println("成功登陆");
-					} else {
-						out.println("登陆失败");
-					}
-				}
-			%>
-
-		</div>
 		<div id="header">
 			<div id="logo">
 				<img src="images/logo.jpg" width="91" height="91" id="logo">
