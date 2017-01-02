@@ -84,7 +84,6 @@
                  %>
                      <table class="cart-table">
                          <tr><th colspan=2>商品</th><th>单价</th><th>数量</th><th>小计</th><th>操作</th></th>
-                         <tr><td><img src="images/logo.jpg"width="70" height="70"></td><td>一只怪兽</td><td>￥100</td><td>1</td><td>1000</td><td>删除</td></tr>
                          <%if(map != null){%>
                          <%for(int gid:goods) {
                                 GoodsInfoVO vo = dao.getGoodsInfo(gid);
