@@ -15,7 +15,7 @@ public class OrderDAO extends BaseDAO {
 	public int addOrder(OrderVO vo) {// 添加订单//返回订单oid，-1时为错误插入
 		Connection conn = open();
 		int oid = -1;
-		String sql = "insert into order (mid,total,address,date) values(?,?,?,?) ";
+		String sql = "insert into order_info (mid,total,address,date) values(?,?,?,?) ";
 		try {
 			PreparedStatement ps = (PreparedStatement) conn
 					.prepareStatement(sql);
@@ -52,7 +52,7 @@ public class OrderDAO extends BaseDAO {
 	public HashMap<Integer, OrderVO> getOrder(int m_mid) {// 读取我的订单
 		Connection conn = open();
 		Map<Integer, OrderVO> orderMap =new HashMap<Integer, OrderVO>();
-		String sql = "select oid,mid,total,address,date from order where mid = ? ";
+		String sql = "select oid,mid,total,address,date from order_info where mid = ? ";
 		try {
 			PreparedStatement ps = (PreparedStatement) conn
 					.prepareStatement(sql);

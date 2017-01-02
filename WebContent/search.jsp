@@ -42,7 +42,7 @@
 
 			<div id='headerright'>
 				<form action="search.do" method="post">
-					<input type='text' name="searchname">
+					<input type='text' name='searchname' >
 					<input type='submit' name='查询' value='查询'>
 				</form>
 			</div>
@@ -93,17 +93,17 @@
 					} else {
 						iPage = 1;
 					}
-					GoodsInfoInitDAO dao = new GoodsInfoInitDAO();
-					HashMap<Integer, GoodsInfoVO> map = dao.getAllGoodsPage(iPage,
-							goodsCount);
+					HashMap<Integer, GoodsInfoVO> map = (HashMap<Integer, GoodsInfoVO>)request.getAttribute("map");
+					int totalCount =(Integer)request.getAttribute("secount");
 					for (Entry<Integer, GoodsInfoVO> entry : map.entrySet()) {
-						int gid = entry.getKey();
+						int id = entry.getKey();
 						GoodsInfoVO vo = entry.getValue();
-						if (gid % 2 == 1) {
+						if (id % 2 == 1) {
 							out.println("<div id='goodleft'>");
 						} else {
 							out.println("<div id='goodright'>");
 						}
+						int gid=vo.getGid();
 						out.println("<a href='goodinfo.jsp?gid=" + gid + "'>");
 						out.println("<img src='" + vo.getPictureURL() + "'>");
 						out.println("</a><br>");
@@ -114,7 +114,6 @@
 				%>
 				<div id='goodinfotop'>
 					<%
-						int totalCount = dao.getAllGoodsCount();
 						int totalPage = totalCount / goodsCount;
 						if (totalCount % goodsCount > 0) {
 							totalPage++;
