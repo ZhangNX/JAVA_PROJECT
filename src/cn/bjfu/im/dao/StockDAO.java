@@ -35,11 +35,12 @@ public class StockDAO extends BaseDAO {
 	public boolean decrStock(int gid,int num) {// ºı…Ÿø‚¥Ê
 		Connection conn = open();
 		boolean f = false;
-		String sql = "update stock set amount = (select amount from stock where gid = ?) - ? where gid = ? ";
+		int oldcount = getStock(gid);
+		String sql = "update stock set amount = ? - ? where gid = ? ";
 		try {
 			PreparedStatement ps = (PreparedStatement) conn
 					.prepareStatement(sql);
-			ps.setInt(1, gid);
+			ps.setInt(1, oldcount);
 			ps.setInt(2, num);
 			ps.setInt(3, gid);
 			int count =ps.executeUpdate();
