@@ -87,14 +87,14 @@
                          <tr><th>订单编号</th><th>时间</th><th>总价</th><th>操作</th></th>
                          <%if(map != null){%>
                          <%for (Map.Entry<Integer, OrderVO> entry : map.entrySet()) {
-                               System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
+                               //System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
                                OrderVO orderVo = (OrderVO)entry.getValue();
                          %>
                          	<tr>
                          	    <td><%=entry.getKey() %></td>
                          	    <td><%=orderVo.getTimestamp() %></td>
                          	    <td><%=orderVo.getTotal() %></td>
-                         	    <td><%="<a href='orederDetail.jsp?oid="+entry.getKey()+"'>" %>详情</a></td>
+                         	    <td><%="<a href='orderDetail.jsp?oid="+entry.getKey()+"'>" %>详情</a></td>
                          	</tr>
                          <%}
                            } else {%>
