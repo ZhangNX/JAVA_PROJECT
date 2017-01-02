@@ -10,8 +10,7 @@ public class OrderVO {// ∂©µ•VO¿‡
 
 	public OrderVO(int t_mid, int t_total, String t_address) {
 		this.mid = t_mid;
-		this.total = t_total;
-		this.address = t_address;
+		this.total = t_total;		this.address = t_address;
 	}
 
 	public OrderVO(int t_mid, double t_total, String t_address, Timestamp t_timestamp) {

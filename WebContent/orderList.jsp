@@ -84,7 +84,7 @@
 	                   map = dao.getOrder(userid);
                  %>
                      <table class="cart-table">
-                         <tr><th colspan=2>订单编号</th><th>时间</th><th>总价</th><th>操作</th></th>
+                         <tr><th>订单编号</th><th>时间</th><th>总价</th><th>操作</th></th>
                          <%if(map != null){%>
                          <%for (Map.Entry<Integer, OrderVO> entry : map.entrySet()) {
                                System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
