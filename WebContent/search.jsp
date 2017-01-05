@@ -39,7 +39,7 @@
 			<div id="left">
 				<ul id="menu_left">
 					<li><a href="index.jsp">首&nbsp&nbsp&nbsp页</a></li>
-					<li><a href="aboutMe.html">订&nbsp&nbsp&nbsp单</a></li>
+					<li><a href="orderList.jsp">订&nbsp&nbsp&nbsp单</a></li>
 					<li><a href="cart.jsp">购&nbsp物&nbsp车</a></li>
 				</ul>
 				<%
@@ -47,7 +47,8 @@
 				%>
 				<div id="user-info">
 					<img src="images/logo.jpg" width="80" height="80" id="logo">
-					<span>&nbsp;用户ID:<%=session.getAttribute("userid")%></span> <span></span>
+					<span>&nbsp;用户ID:<%=session.getAttribute("userid")%></span><br>
+					<span>&nbsp;<a href="logOff.do">注销</a></span>
 				</div>
 				<%
 					} else {
@@ -64,7 +65,7 @@
 								placeholder="密码" required />
 							<div class="clearfix"></div>
 						</div>
-						<input type="submit" value="登陆" /><br> <a href=''>注册</a>
+						<input type="submit" value="登陆" /><br> <a href='register.jsp'>注册</a>
 					</form>
 				</div>
 

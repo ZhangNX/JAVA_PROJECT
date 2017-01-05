@@ -27,36 +27,43 @@
 
 		</div>
 		<div id="middle">
-         <div id="left">
-             <ul id="menu_left">
-                <li><a href="index.jsp">首&nbsp&nbsp&nbsp页</a></li>
-                <li><a href="aboutMe.html">订&nbsp&nbsp&nbsp单</a></li>
-                <li><a href="cart.jsp">购&nbsp物&nbsp车</a></li>
-             </ul>
-             <%if(session.getAttribute("userid")!=null){ %>
-             <div id="user-info">
-             <img src="images/logo.jpg"width="80" height="80" id="logo">
-             <span>&nbsp;用户ID:<%=session.getAttribute("userid")%></span>
-             <span></span>
-             </div>
-             <%}else{ %>
-             
-             <div class="sign-in-box">
-							<h2>请登录</h2>
-			   <form action="login.do" method="post">
-				   <div class="text-boxs">
-						   <input name="username" type="text" class="text-box" placeholder="用户名" required /> 
-						   <div class="clearfix"> </div>
-							<input name="password" type="password" class="text-box" placeholder="密码" required /> 
-							<div class="clearfix"> </div>
-				 </div>
-				 <input type="submit" value="登陆" /><br>
-                 <a href=''>注册</a>
-			   </form>
+			<div id="left">
+				<ul id="menu_left">
+					<li><a href="index.jsp">首&nbsp&nbsp&nbsp页</a></li>
+					<li><a href="orderList.jsp">订&nbsp&nbsp&nbsp单</a></li>
+					<li><a href="cart.jsp">购&nbsp物&nbsp车</a></li>
+				</ul>
+				<%
+					if (session.getAttribute("userid") != null) {
+				%>
+				<div id="user-info">
+					<img src="images/logo.jpg" width="80" height="80" id="logo">
+					<span>&nbsp;用户ID:<%=session.getAttribute("userid")%></span><br>
+					<span>&nbsp;<a href="logOff.do">注销</a></span>
+				</div>
+				<%
+					} else {
+				%>
+
+				<div class="sign-in-box">
+					<h2>请登录</h2>
+					<form action="login.do" method="post">
+						<div class="text-boxs">
+							<input name="username" type="text" class="text-box"
+								placeholder="用户名" required />
+							<div class="clearfix"></div>
+							<input name="password" type="password" class="text-box"
+								placeholder="密码" required />
+							<div class="clearfix"></div>
+						</div>
+						<input type="submit" value="登陆" /><br> <a href='register.jsp'>注册</a>
+					</form>
+				</div>
+
+				<%
+					}
+				%>
 			</div>
-			 
-			<%} %>
-         </div>
 			<div id="right">
 				<div id='goodinfotop'>
 					<div id='goodinfotopleft'>
@@ -82,7 +89,7 @@
 						%><br> <br>
 						<form action="addGoods.do" method="post">
 						购买数量：<input onkeyup="value=value.replace(/[^1234567890-]+/g,'')"
-						name = 'num'>
+						name = 'num' value=1>
 						<input type='hidden' name = 'id' value='<%=gid%>'>
 						<input type ='submit'name='submit' value='添加到购物车'> 
 						

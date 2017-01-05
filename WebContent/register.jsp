@@ -1,3 +1,4 @@
+<%@page import="sun.applet.resources.MsgAppletViewer"%>
 <%@page import="cn.bjfu.im.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -11,7 +12,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>购物网站-首页</title>
+<title>购物网站-注册</title>
 <link rel="shortcut icon" href="images/logo.jpg">
 <link rel="stylesheet" type="text/css" href="css/index.css" />
 <link rel="stylesheet" type="text/css" href="css/goods.css" />
@@ -25,13 +26,13 @@
 				<img src="images/logo.jpg" width="91" height="91" id="logo">
 			</div>
 			<div id="title">
-				<span id="myname_01"><a href="index.jsp">首页</a></span>
+				<span id="myname_01"><a href="index.jsp">注册</a></span>
 			</div>
 
 			<div id='headerright'>
 				<form action="search.do" method="post">
-					<input type='text' size="12" name="searchname">
-					<input type='submit' name='查询' value='查询'>
+					<input type='text' size="12" name="searchname"> <input
+						type='submit' name='查询' value='查询'>
 				</form>
 			</div>
 		</div>
@@ -65,7 +66,7 @@
 								placeholder="密码" required />
 							<div class="clearfix"></div>
 						</div>
-						<input type="submit" value="登陆" /><br> <a href='register.jsp'>注册</a>
+						<input type="submit" value="登陆" /><br> <a href=''>注册</a>
 					</form>
 				</div>
 
@@ -75,51 +76,42 @@
 			</div>
 			<div id="right">
 				<%
-					int iPage = 1;
-					int goodsCount = 4;
-					if (request.getParameter("iPage") != null) {
-						iPage = Integer.parseInt(request.getParameter("iPage"));
-					} else {
-						iPage = 1;
+					String msg = null;
+					msg = (String) request.getAttribute("msg");
+					if (msg != null) {
+						if (msg.equals("success")) {
+				%>
+				<div class="msg">
+					<h2>
+						注册成功！请在页面左侧登陆！
+					</h2>
+				</div>
+				<%
 					}
-					GoodsInfoInitDAO dao = new GoodsInfoInitDAO();
-					HashMap<Integer, GoodsInfoVO> map = dao.getAllGoodsPage(iPage,
-							goodsCount);
-					for (Entry<Integer, GoodsInfoVO> entry : map.entrySet()) {
-						int gid = entry.getKey();
-						GoodsInfoVO vo = entry.getValue();
-						if (gid % 2 == 1) {
-							out.println("<div id='goodleft'>");
-						} else {
-							out.println("<div id='goodright'>");
-						}
-						out.println("<a href='goodinfo.jsp?gid=" + gid + "'>");
-						out.println("<img src='" + vo.getPictureURL() + "'>");
-						out.println("</a><br>");
-						out.println(vo.getGood());
-						out.println("</div>");
+						if (msg.equals("existed")) {
+				%>
+				<div class="msg">
+					<h3>注册失败！用户名已存在！</h3>
+					<a href="register.jsp"><h3>重新注册</h3></a>
+				</div>
+				<%
+					}
+					} else {
+				%>
 
+				<div id="register">
+					<h2>请输入账户信息</h2>
+					<form action="register.do" method="post">
+						<input type="text" name="username" class="text-box"> 
+						<input type="password" name="password" class="text-box"> 
+						<input type="submit" value="注册">
+						
+					</form>
+				</div>
+
+				<%
 					}
 				%>
-				<div id='goodinfotop'>
-					<%
-						int totalCount = dao.getAllGoodsCount();
-						int totalPage = totalCount / goodsCount;
-						if (totalCount % goodsCount > 0) {
-							totalPage++;
-						}
-						if (iPage < 1) {
-							iPage = 1;
-						}
-						if (iPage > totalPage) {
-							iPage = totalPage;
-						}
-						for (int i = 1; i <= totalPage; i++) {
-							out.println("<a href='index.jsp?iPage=" + i + "'>" + i
-									+ "&nbsp;&nbsp;</a>");
-						}
-					%>
-				</div>
 			</div>
 			<div id="tail">
 				<div id="copyright">Copyright © 2017 imis. All Rights Reserved</div>

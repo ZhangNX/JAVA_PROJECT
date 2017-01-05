@@ -5,7 +5,7 @@
 	padding-left:0px;
     background: #FFF;
 	border-radius: 0.2em;
-	border:1px solid yellow;
+	border:1px solid #FFF;
 }
 #goodright {
     width:326px; float:left; clear:right;
@@ -13,16 +13,27 @@
 	padding-left:0px;
     background: #FFF;
 	border-radius: 0.2em;
-	border:1px solid yellow;
+	border:1px solid #FFF;
 	text-align:center;
 }
+
+#goodleft:hover{
+	border:1px solid #9DE2B5;
+	border-radius: 0.2em;
+}
+
+#goodright:hover{
+	border:1px solid #9DE2B5;
+	border-radius: 0.2em;
+}
+
 #goodinfotop {
     width:656px; float:left; clear:left;
 	margin:0 auto;
 	padding:0px;
     background: #FFF;
 	border-radius: 0.2em;
-	border:1px solid yellow;
+	/* border:1px solid yellow; */
 }
 #goodinfotopleft {
     width:400px; float:left; clear:left;
@@ -30,7 +41,7 @@
 	padding:0px;
     background: #FFF;
 	border-radius: 0.2em;
-	border:1px solid yellow;
+	/* border:1px solid yellow; */
 }
 #goodinfotoprigth {
     width:240px; float:left; clear:rigth;
@@ -38,7 +49,7 @@
 	padding:0px;
     background: #FFF;
 	border-radius: 0.2em;
-	border:1px solid yellow;
+	/* border:1px solid yellow; */
 	text-align:left;
 }
 #goodinfomid {
@@ -47,7 +58,7 @@
 	padding:0px;
     background: #FFF;
 	border-radius: 0.2em;
-	border:1px solid yellow;
+	/* border:1px solid yellow; */
 	text-align:left;
 }
 #goodinfobot {
@@ -56,15 +67,16 @@
 	padding:0px;
     background: #FFF;
 	border-radius: 0.2em;
-	border:1px solid yellow;
+	/* border:1px solid yellow; */
 }
 #headerright {
 	height:40px;
 	width:210px; float:right; clear:right;
-	margin:65px 50PX 0px auto;
-	padding:0px;
+	margin:20px 50PX 0px 20px;
+	padding:15px 10px 0px 10px;
     background: #FFF;
 	border-radius: 0.2em;
+	border-left:8px solid #9DE2B5;
 	/* border:1px solid red; */
 
 }
